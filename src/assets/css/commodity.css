@@ -1,0 +1,251 @@
+#commodity {
+    background-color: rgb(236, 236, 236);
+    height: 47.75rem;
+}
+
+.commwhite {
+    background-color: #fff;
+}
+
+.commpl {
+    padding-left: 0.625rem;
+}
+
+.commbrand img {
+    margin: 0 0.125rem;
+}
+
+.commmr {
+    margin-right: 0.625rem;
+}
+
+.commsize {
+    font-size: 1.4375rem;
+    color: rgb(215, 17, 19);
+}
+
+.commswipt {
+    position: relative;
+    width: 100%;
+    height: 21.875rem;
+}
+
+.commswipt .commreturn {
+    display: block;
+    position: absolute;
+    left: 0.9375rem;
+    top: 0.9375rem;
+    width: 0.9375rem;
+    height: 1.25rem;
+    z-index: 99;
+}
+
+.commswipt img {
+    width: 100%;
+    height: 100%;
+}
+
+.commcont {
+    padding-top: 0.3125rem;
+}
+
+.commdao {
+    height: 1.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commbrand {
+    display: flex;
+    font-size: 0.75rem;
+}
+
+.commbrand div {
+    width: 30%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.commbrand .commxiao {
+    width: 33%;
+    position: relative;
+}
+
+.commdui {
+    width: .9375rem;
+    height: .9375rem;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+}
+
+.commxiaoyou {
+    width: 0.5rem;
+    height: .75rem;
+    position: absolute;
+    top: .875rem;
+    right: .3125rem;
+}
+
+.commrou {
+    height: 2.8125rem;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.625rem;
+    border-bottom: .0625rem solid rgb(239, 239, 239);
+}
+
+.commrou div {
+    width: 50%;
+    height: 100%;
+}
+
+.commrou a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 5.9375rem;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commborred {
+    border-bottom: 1px solid red;
+}
+
+.commbar {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.commbarlef {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commbarzi {
+    font-size: 0.8125rem;
+    margin: 0 0.9375rem;
+}
+
+.commbarzi img {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0.3125rem auto;
+}
+
+.commbarrig {
+    width: 55%;
+    display: flex;
+}
+
+.commbarrig div {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commred a {
+    display: block;
+    color: rgb(215, 17, 19);
+}
+
+.commbarrig .commred {
+    border-left: 1px solid rgb(234, 234, 234);
+    color: rgb(215, 17, 19);
+}
+
+.commbag {
+    background-color: rgb(215, 17, 19);
+    color: white;
+}
+
+.activeon {
+    border-bottom: 3px solid rgb(215, 17, 19);
+}
+
+.commbag a {
+    color: white;
+}
+
+#commodity a {
+    text-decoration: none;
+}
+
+.commbarzi a {
+    color: black;
+}
+
+.popup-content {
+    position: absolute;
+    height: 70%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in;
+}
+
+.slide-enter-active {
+    animation-name: slideInUp;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+}
+
+.slide-leave-active {
+    animation-name: slideOutDown;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translate3d(0, 100%, 0);
+        visibility: visible;
+    }
+    to {
+        transform: translateZ(0);
+    }
+}
+
+@keyframes slideOutDown {
+    0% {
+        transform: translateZ(0);
+    }
+    to {
+        visibility: hidden;
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+.delay-leave-active {
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    -o-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
