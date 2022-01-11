@@ -22,9 +22,11 @@
           </div>
         </div>
         <div class="buybody">
+          <!-- 双重for循环商品规格参数 -->
           <div v-for="(item, key, inx) in buydatathre" class="buybodzi">
             <p class="buyml">{{ key }}</p>
             <div class="buyflex">
+              <!-- 使用下标对商品规格进行样式控制 -->
               <div
                 v-for="(i, index) in item"
                 class="buydiv buylong buyml"
@@ -45,6 +47,7 @@
                 />
               </div>
               <div class="buybarwid">
+                <!-- 商品数量输入框 -->
                 <input
                   type="text"
                   v-model="buynum"
@@ -89,7 +92,9 @@ export default {
       buyleng: "", //商品规格的数量
     };
   },
+  //过滤器
   filters: {
+    //拼接价格
     moeny(data) {
       return "￥" + data;
     },
@@ -119,9 +124,11 @@ export default {
         //如果商品规格数量为1，直接拿出下标
         this.buyid = this.buyischeck[0];
       }
-      //进行比对,找出当前所点击商品规格的价格
+      //循环条件所在数组
       for (let index of this.buydataone.keys()) {
+        //拿出每一个下标进行比对
         let b = this.buydataone[index].indexes;
+        //找到商品下标，拿出价格和商品图片
         if (this.buyid == b) {
           this.price = this.buydataone[index].price;
           this.buyimgs = this.buydataone[index].images;
@@ -256,8 +263,9 @@ export default {
           //如果商品规格数量为1，直接拿出下标
           this.buyid = this.buyischeck[0];
         }
-        //循环进行比对,如果indexes值相等,返回该商品的价格
+        //循环条件所在数组进行比对
         for (let item of data.skus.values()) {
+          //找到商品下标，拿出价格和商品图片
           if (item.indexes == this.buyid) {
             this.price = item.price;
             this.buyimgs = item.images;

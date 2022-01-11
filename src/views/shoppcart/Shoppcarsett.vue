@@ -50,6 +50,7 @@ export default {
     this.$store.commit("shoppcartchec");
   },
   filters: {
+    //拼接价格
     money(data) {
       return "￥" + data;
     },

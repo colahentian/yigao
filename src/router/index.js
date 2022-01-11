@@ -47,9 +47,6 @@ const routes = [{
     {
         //商品详情页
         path: '/commodity',
-        // meta: {
-        //     requireAuth: true,
-        // },
         component: Commodity,
         children: [{
                 path: '',

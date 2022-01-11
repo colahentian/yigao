@@ -56,6 +56,7 @@ export default {
     }
   },
   filters:{
+    //拼接价格
     money(data){
       return "￥" +data
     }

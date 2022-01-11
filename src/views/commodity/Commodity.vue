@@ -1,10 +1,13 @@
 <template>
   <div id="commodity">
+    <!-- 详情页轮播图 -->
     <div class="commswipt commwhite">
       <commoswiper></commoswiper>
     </div>
+    <!-- 详情页主要内容区 -->
     <commcont> </commcont>
     <router-view></router-view>
+    <!-- 详情页底部栏 -->
     <commbar> </commbar>
     <!-- 商品规格弹出层 -->
     <div class="vue-popup">
