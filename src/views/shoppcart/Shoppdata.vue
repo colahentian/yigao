@@ -71,6 +71,7 @@ export default {
     selectshoppcart()
       .then((res) => {
         //把页面渲染数据翻转
+        console.log(res);
         let data = res.data.data.reverse();
         //把商品参数数据传到vuex
         this.$store.commit("shoppadddata", data);

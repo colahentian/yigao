@@ -37,6 +37,8 @@ export default new Vuex.Store({
         //首页所点击商品的skuid,然后渲染该商品
         addcommod(state, contspuid) {
             state.commoskuid = contspuid.spuId;
+            localStorage.setItem('spuid', contspuid.spuId)
+            console.log(localStorage.getItem('spuid'));
             state.commcondata = contspuid;
         },
         //购物车反选按钮

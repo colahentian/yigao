@@ -8,9 +8,12 @@
       </div>
       <div id="sset" class="swiper-pagination"></div>
     </div>
-    <router-link to="/home">
-      <img src="../../assets/img/yigao/主页/back@2x.png" class="commreturn" />
-    </router-link>
+
+    <img
+      src="../../assets/img/yigao/主页/back@2x.png"
+      class="commreturn"
+      @click="retrn"
+    />
   </div>
 </template>
 <script>
@@ -27,7 +30,13 @@ export default {
       comosswpier: [],
     };
   },
+
   methods: {
+    retrn() {
+      this.$router.push("/home");
+      localStorage.removeItem("spuid");
+      console.log(localStorage.getItem("spuid"));
+    },
     commswiper() {
       //轮播图组件
       new Swiper(".swiper-container", {
@@ -52,7 +61,7 @@ export default {
   },
   created() {
     //用首页点击商品id获取接口数据
-    let spuid = this.$store.state.commoskuid;
+    let spuid = localStorage.getItem("spuid");
     commodata(spuid)
       .then((response) => {
         //截取图片地址字符串,返回给数组

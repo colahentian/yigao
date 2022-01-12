@@ -19,7 +19,7 @@ export default {
   },
   created() {
     //用首页点击商品id获取接口数据
-    let spuid = this.$store.state.commoskuid;
+    let spuid = localStorage.getItem("spuid");
     commodata(spuid)
       .then((res) => {
         //截取图片地址字符串

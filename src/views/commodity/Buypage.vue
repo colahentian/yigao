@@ -2,7 +2,7 @@
   <div id="Buypage">
     <div class="mask" v-show="$store.state.showtw" @click="buyshowfal()"></div>
     <transition name="slide">
-      <div id="buy-white" v-show="$store.state.showtw">
+      <div id="buywhite" v-show="$store.state.showtw">
         <div class="buyimg">
           <img :src="buyimgs" class="buyimgon" />
           <div class="buywen">
@@ -105,7 +105,7 @@ export default {
       this.buyischeck[inx] = index;
       //判断商品规格数量是否为1
       if (this.buyleng > 1) {
-        //如果商品数量为1，拼接下标
+        //如果商品数量不为1，拼接下标
         let indexd = "";
         this.buyischeck.forEach((item) => {
           indexd += item + "_";
@@ -152,7 +152,7 @@ export default {
       this.$store.commit("addbuyCart");
       //判断商品规格数量是否为1
       if (this.buyleng > 1) {
-        //如果商品数量为1，拼接下标
+        //如果商品数量不为1，拼接下标
         let indexd = "";
         this.buyischeck.forEach((item) => {
           indexd += item + "_";
@@ -211,7 +211,8 @@ export default {
 
   mounted() {
     //用首页点击商品id获取接口数据
-    let spuid = this.$store.state.commoskuid;
+    let spuid = localStorage.getItem("spuid");
+    console.log(spuid);
     commodata(spuid)
       .then((response) => {
         //拿出页面渲染数据,条件所在数据

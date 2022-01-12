@@ -1,12 +1,12 @@
 <template>
   <div id="commcont">
     <div class="commcont commwhite">
-      <div class="commpl">{{ $store.state.commcondata.spuTitle }}</div>
+      <div class="commpl">{{ commdata.title | undein }}</div>
       <div class="commpl commdao">
         <div class="commsize">
-          {{ $store.state.commcondata.disCountPrict | money }}
+          {{ commdata.price | money }}
         </div>
-        <div class="commmr">{{ $store.state.commcondata.doneCont | sold }}</div>
+        <div class="commmr">{{ commdata.stock | sold }}</div>
       </div>
       <div class="commbrand">
         <div class="commpl">
@@ -45,16 +45,49 @@
 </template>
 <script>
 //商品详情页主体内容组件
+//获取页面数据
+import { commodata } from "@/api/commodity.js";
 export default {
   name: "Commcont",
+  data() {
+    return {
+      commdata: [],
+    };
+  },
   //过滤器,对价格和文字进行拼接
   filters: {
+    undein(data) {
+      if (data == undefined) {
+        return (data = "");
+      } else {
+        return data;
+      }
+    },
     money(data) {
-      return "￥" + data;
+      if (data == undefined) {
+        return (data = "￥");
+      } else {
+        return "￥" + data;
+      }
     },
     sold(data) {
-      return "已售" + data;
+      if (data == undefined) {
+        return (data = "已售");
+      } else {
+        return "已售" + data;
+      }
     },
+  },
+  created() {
+    //用首页点击商品id获取接口数据
+    let spuid = localStorage.getItem("spuid");
+    commodata(spuid)
+      .then((response) => {
+        this.commdata = response.data.data.skus[0];
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   },
 };
 </script>
