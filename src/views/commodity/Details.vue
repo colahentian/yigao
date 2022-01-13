@@ -1,6 +1,6 @@
 <template>
   <div id="details">
-    <div class="dataiimg" v-for="item in detai">
+    <div class="dataiimg" v-for="item,index in detai" :key="index">
       <img :src="item" />
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
   },
   created() {
     //用首页点击商品id获取接口数据
-    let spuid = localStorage.getItem("spuid");
+   let spuid =  localStorage.getItem("spuid");
     commodata(spuid)
       .then((res) => {
         //截取图片地址字符串

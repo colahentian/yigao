@@ -1,6 +1,6 @@
 <template>
   <div id="parameter">
-    <div class="parambod" v-for="item in param">
+    <div class="parambod" v-for="item,index in param" :key="index">
       <div class="parambod">
         <div>{{ item.paramName }}</div>
         <div>{{ item.paramValue }}</div>
@@ -22,7 +22,7 @@ export default {
   },
   created() {
     //用首页点击商品id获取接口数据
-    let spuid = localStorage.getItem("spuid");
+   let spuid =  localStorage.getItem("spuid");
     commparameter(spuid)
       .then((response) => {
         //拿出页面渲染数据

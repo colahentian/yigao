@@ -1,6 +1,6 @@
 <template>
   <div id="jump">
-    <div v-for="item in jumpd" class="jum">
+    <div v-for="(item,index) in jumpd" :key="index" class="jum">
       <img :src="item.cimage" @click="dele" />
       {{ item.name }}
     </div>
@@ -9,6 +9,7 @@
 <script>
 //首页分类导航组件
 //请求数据接口
+
 import { homedata } from "@/api/home.js";
 export default {
   name: "Jump",
@@ -19,6 +20,7 @@ export default {
       limit: 1, //条数
     };
   },
+  
   created() {
     //请求页面数据
     homedata(this.current, this.limit)

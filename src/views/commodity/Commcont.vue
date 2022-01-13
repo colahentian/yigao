@@ -13,6 +13,7 @@
           <img src="../../assets/img/yigao/购物车/gou@2x.png" class="commdui" />
           品牌制造商直供
         </div>
+
         <div>
           <img src="../../assets/img/yigao/购物车/gou@2x.png" class="commdui" />
           品牌制造商直供
@@ -54,6 +55,7 @@ export default {
       commdata: [],
     };
   },
+
   //过滤器,对价格和文字进行拼接
   filters: {
     undein(data) {

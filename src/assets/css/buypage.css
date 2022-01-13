@@ -10,7 +10,7 @@
     margin: 0.5rem 0;
 }
 
-#buywhite {
+#buy-white {
     position: fixed;
     height: 80%;
     bottom: 0;
@@ -112,6 +112,7 @@
 }
 
 .buylong {
+    /* width: 8.125rem; */
     padding: 0 1.25rem;
 }
 

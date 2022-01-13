@@ -33,7 +33,7 @@ export default {
     cartprice() {
       return (
         //过滤
-        this.$store.state.shocartdata
+        this.$store.state.shoppcart.shocartdata
           .filter((item) => {
             return item.check;
           })
@@ -50,7 +50,6 @@ export default {
     this.$store.commit("shoppcartchec");
   },
   filters: {
-    //拼接价格
     money(data) {
       return "￥" + data;
     },

@@ -2,7 +2,7 @@
   <div id="shoppdata">
     <div
       class="shoppbai"
-      v-for="(item, index) in this.$store.state.shocartdata"
+      v-for="(item, index) in shoppcartdata"
       :key="index"
     >
       <div class="shopphear">
@@ -26,7 +26,7 @@
         <img :src="item.image" class="shoppbodimg" />
         <div class="shoppwen">
           <div>{{ item.title }}</div>
-          <div class="shoppdatasize" v-for="a in item.skuAttr">
+          <div class="shoppdatasize" v-for="a,index in item.skuAttr" :key="index">
             {{ a | shoppdatadele }}
           </div>
           <div>
@@ -71,7 +71,6 @@ export default {
     selectshoppcart()
       .then((res) => {
         //把页面渲染数据翻转
-        console.log(res);
         let data = res.data.data.reverse();
         //把商品参数数据传到vuex
         this.$store.commit("shoppadddata", data);
@@ -79,6 +78,11 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
+  },
+  computed:{
+    shoppcartdata:function(){
+      return this.$store.state.shoppcart.shocartdata
+    }
   },
   //过滤器
   filters: {

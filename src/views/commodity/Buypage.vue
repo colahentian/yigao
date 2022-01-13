@@ -1,8 +1,8 @@
 <template>
   <div id="Buypage">
-    <div class="mask" v-show="$store.state.showtw" @click="buyshowfal()"></div>
+    <div class="mask" v-show="$store.state.home.showtw" @click="buyshowfal()"></div>
     <transition name="slide">
-      <div id="buywhite" v-show="$store.state.showtw">
+      <div id="buy-white" v-show="$store.state.home.showtw">
         <div class="buyimg">
           <img :src="buyimgs" class="buyimgon" />
           <div class="buywen">
@@ -22,13 +22,12 @@
           </div>
         </div>
         <div class="buybody">
-          <!-- 双重for循环商品规格参数 -->
-          <div v-for="(item, key, inx) in buydatathre" class="buybodzi">
+          <div v-for="(item, key, inx) in buydatathre" :key="inx" class="buybodzi">
             <p class="buyml">{{ key }}</p>
             <div class="buyflex">
-              <!-- 使用下标对商品规格进行样式控制 -->
               <div
                 v-for="(i, index) in item"
+                :key="index"
                 class="buydiv buylong buyml"
                 @click="buytrans(inx, index)"
                 :class="{ buybagre: index === buyischeck[inx] }"
@@ -47,7 +46,6 @@
                 />
               </div>
               <div class="buybarwid">
-                <!-- 商品数量输入框 -->
                 <input
                   type="text"
                   v-model="buynum"
@@ -92,9 +90,7 @@ export default {
       buyleng: "", //商品规格的数量
     };
   },
-  //过滤器
   filters: {
-    //拼接价格
     moeny(data) {
       return "￥" + data;
     },
@@ -124,11 +120,9 @@ export default {
         //如果商品规格数量为1，直接拿出下标
         this.buyid = this.buyischeck[0];
       }
-      //循环条件所在数组
+      //进行比对,找出当前所点击商品规格的价格
       for (let index of this.buydataone.keys()) {
-        //拿出每一个下标进行比对
         let b = this.buydataone[index].indexes;
-        //找到商品下标，拿出价格和商品图片
         if (this.buyid == b) {
           this.price = this.buydataone[index].price;
           this.buyimgs = this.buydataone[index].images;
@@ -152,7 +146,7 @@ export default {
       this.$store.commit("addbuyCart");
       //判断商品规格数量是否为1
       if (this.buyleng > 1) {
-        //如果商品数量不为1，拼接下标
+        //如果商品数量为1，拼接下标
         let indexd = "";
         this.buyischeck.forEach((item) => {
           indexd += item + "_";
@@ -211,8 +205,7 @@ export default {
 
   mounted() {
     //用首页点击商品id获取接口数据
-    let spuid = localStorage.getItem("spuid");
-    console.log(spuid);
+    let spuid =  localStorage.getItem("spuid");
     commodata(spuid)
       .then((response) => {
         //拿出页面渲染数据,条件所在数据
@@ -264,9 +257,8 @@ export default {
           //如果商品规格数量为1，直接拿出下标
           this.buyid = this.buyischeck[0];
         }
-        //循环条件所在数组进行比对
+        //循环进行比对,如果indexes值相等,返回该商品的价格
         for (let item of data.skus.values()) {
-          //找到商品下标，拿出价格和商品图片
           if (item.indexes == this.buyid) {
             this.price = item.price;
             this.buyimgs = item.images;

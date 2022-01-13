@@ -3,7 +3,7 @@
     <shopphead></shopphead>
     <shoppdata></shoppdata>
     <!-- 如果购物车数组长度小于1,显示空购物车 -->
-    <div class="shoppcont" v-show="$store.state.shocartdata.length < 1">
+    <div class="shoppcont" v-show="shopplength< 1">
       <shoppshow></shoppshow>
     </div>
     <shoppcarsett></shoppcarsett>
@@ -23,8 +23,14 @@ export default {
     Shoppshow,
   },
   data() {
-    return {};
+    return {
+    };
   },
+  computed:{
+    shopplength:function(){
+      return this.$store.state.shoppcart.shocartdata.length
+    }
+  }
 };
 </script>
 <style>

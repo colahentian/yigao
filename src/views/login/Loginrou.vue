@@ -106,7 +106,6 @@ export default {
           let logincode = response.data.code;
           //code为0代表登录成功
           if (logincode === 0) {
-            console.log(logincode);
             //把token传到vuex本地存储
             _this.$store.commit("changeuser", logintoken);
             //删除本地存储重定向地址

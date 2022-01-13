@@ -2,18 +2,15 @@
   <div id="commoswiper">
     <div class="swiper-container" style="z-index: 0">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="item in comosswpier">
+        <div class="swiper-slide" v-for="(item,index) in comosswpier" :key="index">
           <img :src="item" class="commswiperimg" />
         </div>
       </div>
       <div id="sset" class="swiper-pagination"></div>
     </div>
-
-    <img
-      src="../../assets/img/yigao/主页/back@2x.png"
-      class="commreturn"
-      @click="retrn"
-    />
+   
+      <img src="../../assets/img/yigao/主页/back@2x.png" class="commreturn" @click="retrn" />
+  
   </div>
 </template>
 <script>
@@ -30,12 +27,10 @@ export default {
       comosswpier: [],
     };
   },
-
   methods: {
-    retrn() {
-      this.$router.push("/home");
-      localStorage.removeItem("spuid");
-      console.log(localStorage.getItem("spuid"));
+    retrn(){
+      this.$router.push("/home")
+      localStorage.removeItem("spuid")
     },
     commswiper() {
       //轮播图组件
@@ -61,7 +56,7 @@ export default {
   },
   created() {
     //用首页点击商品id获取接口数据
-    let spuid = localStorage.getItem("spuid");
+     let spuid =  localStorage.getItem("spuid");
     commodata(spuid)
       .then((response) => {
         //截取图片地址字符串,返回给数组

@@ -5,8 +5,8 @@
     </div>
     <div>
       购物车
-      <span v-if="$store.state.shocartdata.length != 0"
-        >({{ $store.state.shocartdata.length }})</span
+      <span v-if="shopplength != 0"
+        >({{ shopplength }})</span
       >
     </div>
     <div class="shopprig" v-show="shoppheadshow" @click="shopheadshow">
@@ -25,6 +25,7 @@ export default {
     return {
       //删除按钮的隐藏状态
       shoppheadshow: true,
+      shopplength:'',
     };
   },
   methods: {
@@ -38,10 +39,15 @@ export default {
       this.$forceUpdate();
       this.$store.commit("shopprefresh");
       //购物车为空,空购物车出现,删除隐藏
-      if (this.$store.state.shocartdata.length == 0) {
+      if ( this.shopplength== 0) {
         this.shoppheadshow = true;
       }
     },
   },
+  computed:{
+    shoppLength:function(){
+      this.shopplength=this.$store.state.shoppcart.shocartdata.length
+    }
+  }
 };
 </script>

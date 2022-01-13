@@ -1,12 +1,8 @@
 <template>
   <div id="home">
-    <!-- 首页头部搜索栏 -->
     <hear></hear>
-    <!-- 首页轮播图 -->
     <homeswiper> </homeswiper>
-    <!-- 首页分类导航栏 -->
     <jump></jump>
-    <!-- 首页内容区 -->
     <contentd> </contentd>
   </div>
 </template>

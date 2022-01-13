@@ -108,7 +108,7 @@ export default {
       const offsetHeight = el.offsetHeight;
       el.onscroll = () => {
         //滚动框距离顶部的高度
-        const scrollTop = el.scrollTop;
+        const scrollTop = el.scrollTop+0.5;
         //整个内容区的高度
         const scrollHeight = el.scrollHeight;
         if (offsetHeight + scrollTop >= scrollHeight) {

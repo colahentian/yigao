@@ -10,10 +10,10 @@
       <div class="messmar" @click="messlogin">提交</div>
     </div>
   <div class="messcont">
-      <img :src="$store.state.messagedata.image" />
+      <img :src="messdata.image" />
       <div>
-        <span> {{$store.state.messagedata.title}} </span><br />
-        <span> {{$store.state.messagedata.price | money}} </span>
+        <span> {{messdata.title}} </span><br />
+        <span> {{messdata.price | money}} </span>
       </div>
     </div>
     <div class="messcont">
@@ -22,8 +22,7 @@
         rows="10"
         placeholder="输入留言"
         v-model="message"
-      />   
-      </textarea>   
+      />  
     </div>  
   </div>
 </template>
@@ -47,16 +46,19 @@ export default {
     message:{
       //拿出数据进行绑定
       get(){
-        return this.$store.state.messagemodel
+        return this.$store.state.shoppcart.messagemodel
       },
       //使用vuex实时更改改变的留言
       set(value){
         this.$store.commit('messageup',value)
       }
+    },
+    //购物车用户所点击的商品数据
+    messdata:function(){
+      return this.$store.state.shoppcart.messagedata
     }
   },
   filters:{
-    //拼接价格
     money(data){
       return "￥" +data
     }
