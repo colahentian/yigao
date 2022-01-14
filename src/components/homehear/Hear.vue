@@ -1,7 +1,7 @@
 <template>
   <div id="hear">
-    <div class="hearlet">
-      杭州
+    <div class="hearlet" @click="hearinde">
+      {{addres}}
       <img
         src="../../assets/img/yigao/首页/xiao_youjiantou@2x.png"
         class="homeimg"
@@ -23,6 +23,17 @@
 <script>
 export default {
   name: "Hear",
+  methods:{
+    hearinde(){
+      this.$router.push('/address')
+      this.$store.commit('showtabar')
+    }
+  },
+  computed:{
+    addres(){
+      return  localStorage.getItem("addre")
+    }
+  }
 };
 </script>
 <style>

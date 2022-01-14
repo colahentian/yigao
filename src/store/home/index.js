@@ -6,6 +6,7 @@ const state = {
     commoskuid: '', //根据首页点击,所变化的商品详情页id
     commcondata: [], //商品详情页主体数据
     redpaht: '', //登陆之后应该进入的地址
+    tabbarshow:false,//隐藏底部栏条件(测试)
 };
 const mutations = {
     //token本地存储
@@ -17,6 +18,10 @@ const mutations = {
     redirapath(state, path) {
         state.redpaht = path
         localStorage.setItem('path', path);
+    },
+    //点击事件隐藏底部栏
+    showtabar(state){
+        state.tabbarshow=!state.tabbarshow
     },
     //首页所点击商品的skuid,然后渲染该商品
     addcommod(state, contspuid) {

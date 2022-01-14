@@ -11,6 +11,7 @@ const Register = () => import('../views/login/Register.vue')     //注册页
 const Welcome = () => import('../views/login/Welcome.vue')      //欢迎页
 const Home = () => import('../views/home/Home')                 //主页
 const Shoppcart = () => import('../views/shoppcart/Shoppcart') //购物车页
+const Address = () => import('../views/home/Address')
 import { Dialog } from "vant"; //弹窗组件
 Vue.use(VueRouter)
 
@@ -32,6 +33,12 @@ const routes = [{
     path: '/home',
     name: 'Home',
     component: Home,
+},
+{
+    //index地址栏
+    path: '/address',
+    name: 'Address',
+    component: Address
 },
 {
     //商品详情页

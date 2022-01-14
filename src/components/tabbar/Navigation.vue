@@ -1,5 +1,5 @@
 <template>
-  <div id="navigation">
+  <div id="navigation" v-show="isshow">
     <tab-bar>
       <tab-baritem path="/home">
         <img
@@ -44,6 +44,11 @@ export default {
     TabBar,
     TabBaritem,
   },
+  computed:{
+    isshow(){
+      return this.$store.state.home.tabbarshow
+    }
+  }
 };
 </script>
 <style scoped>

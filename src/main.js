@@ -9,8 +9,12 @@ import { List } from 'vant'; //上划刷新组件
 import { Dialog } from 'vant'; //确认框组件
 import { Toast } from 'vant'; //提示框组件
 import 'vant/lib/index.css' //vant样式引入
+import { IndexBar, IndexAnchor,Cell } from 'vant';//index导航地址栏
 
 
+Vue.use(Cell);
+Vue.use(IndexBar);
+Vue.use(IndexAnchor);
 Vue.use(VueAwesomeSwiper)
 Vue.use(Dialog);
 Vue.use(List);
